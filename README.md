@@ -15,12 +15,13 @@ Certifique-se de ter o Docker e o Docker Compose instalados. No terminal, execut
 ```bash
 docker compose up --build
 
+```mermaid
 graph TD
     User((Usuário)) -->|Porta 80| Angular[Angular 18 Frontend]
     Angular -->|REST API :8081| Spring[Spring Boot API]
-    Spring -->|JPA/Hibernate| Postgres[(PostgreSQL)]
+    Spring -->|JPA/Hibernate 6| Postgres[(PostgreSQL)]
     
-    subgraph Docker Container
+    subgraph Docker Infrastructure
         Angular
         Spring
         Postgres
