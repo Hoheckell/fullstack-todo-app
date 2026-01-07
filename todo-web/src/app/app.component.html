@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Minhas Tarefas (Spring + Angular)</h1>
+
+  <div class="input-group">
+    <input 
+      [ngModel]="newTodoTitle()" 
+      (ngModelChange)="newTodoTitle.set($event)"
+      placeholder="O que precisa ser feito?"
+      (keyup.enter)="addTodo()"
+    >
+    <button (click)="addTodo()">Adicionar</button>
+  </div>
+
+  <hr>
+
+  <ul>
+    @for (todo of todos(); track todo.id) {
+      <li>
+        <input type="checkbox" [checked]="todo.completed" (change)="toggleTodo(todo)">
+        <span>{{ todo.title }}</span>
+        <button (click)="deleteTodo(todo.id!)" class="btn-delete">🗑️</button>
+      </li>
+    } @empty {
+      <li class="empty-state">Nenhuma tarefa para hoje! 🚀</li>
+    }
+
+  </ul>
+</div>
