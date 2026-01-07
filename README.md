@@ -26,7 +26,6 @@ A solução é **100% conteinerizada**, utiliza **PostgreSQL** como banco relaci
 - **Lombok** – Redução de boilerplate e ganho de produtividade
 - **Jakarta Validation** – Validações e regras de negócio no nível de DTO
 - **PostgreSQL 15** – Persistência de dados relacional
-- **Docker Compose** – Orquestração dos serviços
 
 ### Frontend
 - **Angular 18**
@@ -39,6 +38,7 @@ A solução é **100% conteinerizada**, utiliza **PostgreSQL** como banco relaci
 - **Docker Compose**
 - **Nginx** – Servidor de arquivos estáticos para o frontend
 - **Healthchecks** – Garantia de ordem correta de inicialização dos serviços
+- **Docker Compose** – Orquestração dos serviços
 
 ---
 
