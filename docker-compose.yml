@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:15
+    container_name: todo-db
+    environment:
+      POSTGRES_DB: todolist
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5443:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d todolist"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: ./todo-api
+    container_name: todo-api
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/todolist
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+      image: node:20-alpine
+      container_name: todo-app
+      working_dir: /app
+      ports:
+        - "5000:4200" # Mapeia a porta 4200 do Angular para a 80 do seu Ubuntu
+      volumes:
+        - ./todo-web:/app
+      command: sh -c "npm install && npx ng serve --host 0.0.0.0 --poll 2000"
+      depends_on:
+        - api
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: todo-mq
+    ports:
+      - "5672:5672"   # Porta do protocolo AMQP
+      - "15672:15672" # Painel administrativo (User/Pass: guest)
