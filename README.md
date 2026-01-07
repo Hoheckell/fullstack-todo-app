@@ -114,11 +114,6 @@ docker compose up --build
 
 A aplicação foi desenhada seguindo princípios de alta disponibilidade, baixo acoplamento e separação de responsabilidades (SoC).
 
-## 🗺 Roadmap de Evolução
-- [x] Implementação de Mensageria Assíncrona com **RabbitMQ**.
-- [ ] Implementação de **GraphQL** para consultas customizadas.
-- [ ] Adição de documentação interativa com **Swagger / OpenAPI 3**.
-
 ```mermaid
 graph TD
     User((Usuário)) -->|HTTP :80| Angular[Angular 18 Frontend]
@@ -131,6 +126,12 @@ graph TD
         Postgres
     end
 ```
+
+
+## 🗺 Roadmap de Evolução
+- [x] Implementação de Mensageria Assíncrona com **RabbitMQ**.
+- [ ] Implementação de **GraphQL** para consultas customizadas.
+- [ ] Adição de documentação interativa com **Swagger / OpenAPI 3**.
 
 ---
 
