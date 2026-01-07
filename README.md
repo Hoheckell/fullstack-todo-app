@@ -1,19 +1,10 @@
 # Fullstack Todo List - Spring Boot 3 & Angular 18
 
-Este projeto é uma demonstração de arquitetura moderna utilizando **Java 17**, **Spring Boot 3.4**, **Angular 18 (Signals)** e **Docker**.
+Este projeto é uma demonstração de arquitetura moderna, escalável e resiliente, integrando um backend robusto em **Java 17 / Spring Boot 3.4** com um frontend reativo em **Angular 18**. A solução é totalmente conteinerizada e utiliza **PostgreSQL** para persistência de dados.
 
-## 🏗 Arquitetura
-A aplicação segue os princípios de sistemas distribuídos e resilientes:
-- **Backend:** Spring Boot com JPA/Hibernate 6 implementando **Soft Delete** via `@SQLRestriction`.
-- **Frontend:** Angular Standalone Components com gerenciamento de estado via **Signals**.
-- **Database:** PostgreSQL 15.
-- **Orquestração:** Docker Compose com Healthchecks para garantir a ordem de inicialização.
+## 🏗 Arquitetura do Sistema
 
-## 🚀 Como Executar
-Certifique-se de ter o Docker e o Docker Compose instalados. No terminal, execute:
-
-```bash
-docker compose up --build
+A aplicação foi desenhada seguindo princípios de alta disponibilidade e separação de responsabilidades (SoC):
 
 ```mermaid
 graph TD
